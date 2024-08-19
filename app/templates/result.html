@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ piece|capitalize }}'s Moves - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="success-message">
+            {{ message }}
+            <br>
+            Time taken: {{ elapsed_time }} seconds
+        </div>
+        {% if path %}
+            <p><b>The path followed by the {{ piece }}:</b></p>
+            <p>{{ path }}</p>
+        {% endif %}
+        <a href="{{ url_for(piece + '_game') }}" class="play-again-box">Play Again</a>
+
+        {% if piece == 'knight' %}
+            <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+            <a href="{{ url_for('color_game') }}" class="other-game-box">Color Game</a>
+        {% elif piece == 'bishop' %}
+            <a href="{{ url_for('knight_game') }}" class="other-game-box">Knight Game</a>
+            <a href="{{ url_for('color_game') }}" class="other-game-box">Color Game</a>
+        {% else %}
+            <a href="{{ url_for('knight_game') }}" class="other-game-box">Knight Game</a>
+            <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+        {% endif %}
+
+    </div>
+</body>
+</html>

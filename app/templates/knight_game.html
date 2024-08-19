@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Knight's Moves</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Knight's Moves</h1>
+        {% if correct_answer %}
+            <div class="success-message">Congratulations! You got it right!</div>
+            <a href="{{ url_for('knight_game') }}" class="play-again-box">Play Again</a>
+            <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+        {% endif %}
+        <div class="square-box-container">
+            <div class="square-box">{{ square_a }}</div>
+            <div class="square-box">{{ square_b }}</div>
+        </div>
+        <p><b>Select the number of moves required:</b></p>
+        <form method="post" id="moveForm">
+            <input type="hidden" name="user_moves" id="user_moves">
+            <div class="user-box-container">
+                <div class="user-box" onclick="submitMove(1)">1</div>
+                <div class="user-box" onclick="submitMove(2)">2</div>
+                <div class="user-box" onclick="submitMove(3)">3</div>
+                <div class="user-box" onclick="submitMove(4)">4</div>
+                <div class="user-box" onclick="submitMove(5)">5</div>
+                <div class="user-box" onclick="submitMove(6)">6</div>
+            </div>
+        </form>
+        {% if message %}
+            <p style="color: red;">{{ message }}</p>
+        {% endif %}
+    </div>
+    <script>
+        function submitMove(value) {
+            document.getElementById('user_moves').value = value;
+            document.getElementById('moveForm').submit();
+        }
+    </script>
+</body>
+</html>

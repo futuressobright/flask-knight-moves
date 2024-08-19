@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Guess the Square Color</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Guess the Square Color</h1>
+        <div class="square-box-container">
+            <div class="square-box">{{ square }}</div>
+        </div>
+        <p><b>What color is this square?</b></p>
+        <form method="post" id="colorForm">
+            <div class="color-box-container">
+                <button type="submit" name="user_color" value="White" class="color-box white">White</button>
+                <button type="submit" name="user_color" value="Black" class="color-box black">Black</button>
+            </div>
+        </form>
+        {% if message %}
+            <p style="color: red;">{{ message }}</p>
+        {% endif %}
+        <a href="{{ url_for('knight_game') }}" class="other-game-box">Knight Game</a>
+        <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+    </div>
+</body>
+</html>
