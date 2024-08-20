@@ -77,7 +77,7 @@ def game_logic(piece):
         if user_answer == correct_answer:
             rounded_time = round(elapsed_time, 1)
             if piece == 'bishop' and correct_answer == 0:
-                message = "Correct! It's impossible for a bishop to move between these squares."
+                message = "Correct! The bishop can't move to a different-colored square."
             else:
                 message = f"Correct! The {piece} can get there in {correct_answer} {'move' if correct_answer == 1 else 'moves'}."
             return render_template('result.html', elapsed_time=rounded_time,

@@ -1,0 +1,21 @@
+# Ignore Python virtual environments
+knight-venv/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore IDE-specific files (for PyCharm/IntelliJ IDEA)
+.idea/
+
+# Ignore macOS-specific files
+.DS_Store
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore compiled code
+*.so
+*.dll
+*.dylib
