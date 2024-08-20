@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Guess the Square Color</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 </head>
 
 <body>
@@ -23,8 +25,7 @@
         {% if message %}
             <p style="color: red;">{{ message }}</p>
         {% endif %}
-        <a href="{{ url_for('knight_game') }}" class="other-game-box">Knight Game</a>
-        <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+
     </div>
 </body>
 </html>

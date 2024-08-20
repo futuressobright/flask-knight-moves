@@ -1,3 +1,6 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+
 body {
     background-color: #FFCC99;
     font-family: Arial, sans-serif;
@@ -11,16 +14,14 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 600px;
-    width: 100%;
-    margin: 20px auto;
-    padding: 20px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .square-box-container {
@@ -97,7 +98,7 @@ p {
     animation: fadeIn 1s ease-in-out;
 }
 
-.play-again-box {
+.play-again-box, .other-game-box {
     background-color: #FFD700;
     color: #333;
     padding: 15px 30px;
@@ -112,7 +113,7 @@ p {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.play-again-box:hover {
+.play-again-box:hover, .other-game-box:hover {
     background-color: #FFC107;
     transform: scale(1.05);
 }
@@ -128,77 +129,65 @@ p[style="color: red;"] {
     margin-top: 20px;
 }
 
-@media (max-width: 480px) {
-    .square-box {
-        font-size: 24px;
-        padding: 30px;
-        width: 150px;
-        height: 150px;
-    }
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
 
-    .user-box {
-        font-size: 14px;
-        padding: 5px;
-        width: 60px;
-        height: 60px;
-    }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 
-    .user-box-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .square-box {
+    font-size: 20px;
+    padding: 15px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .user-box {
+    font-size: 14px;
+    padding: 6px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .play-again-box, .other-game-box {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
 }
 
 .game-selection {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .game-button {
-    background-color: #87CEEB;
-    color: #333;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    border: 2px solid #333;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
+  background-color: #87CEEB;
+  color: #333;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .game-button:hover {
-    background-color: #5CACEE;
-    transform: scale(1.05);
+  background-color: #5CACEE;
+  transform: scale(1.05);
 }
 
-.other-game-box {
-    background-color: #87CEEB;  /* Light blue background */
-    color: #333;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    border: 2px solid #333;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.other-game-box:hover {
-    background-color: #5CACEE;  /* Darker blue on hover */
-    transform: scale(1.05);
-}
-
-/* To align the boxes side by side */
-.play-again-box, .other-game-box {
-    margin-right: 10px;
-}
 
 /* Center the form and its contents */
 #colorForm {

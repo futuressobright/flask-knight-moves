@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Chess Piece Moves</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
@@ -15,7 +16,6 @@
             <a href="{{ url_for('knight_game') }}" class="game-button">Knight Game</a>
             <a href="{{ url_for('bishop_game') }}" class="game-button">Bishop Game</a>
             <a href="{{ url_for('color_game') }}" class="game-button">Color Game</a>
-
         </div>
     </div>
 </body>
