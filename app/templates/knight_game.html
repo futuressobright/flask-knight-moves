@@ -11,12 +11,15 @@
 </head>
 
 <body>
+    <div class="wrapper">
     <div class="container">
         <h1>Knight's Moves</h1>
         {% if correct_answer %}
             <div class="success-message">Congratulations! You got it right!</div>
-            <a href="{{ url_for('knight_game') }}" class="play-again-box">Play Again</a>
-            <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+            <div class="result-buttons-container">
+                    <a href="{{ url_for('knight_game') }}" class="play-again-box">Play Again</a>
+                    <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+            </div>
         {% endif %}
         <div class="square-box-container">
             <div class="square-box">{{ square_a }}</div>
@@ -37,6 +40,7 @@
         {% if message %}
             <p style="color: red;">{{ message }}</p>
         {% endif %}
+    </div>
     </div>
     <script>
         function submitMove(value) {
