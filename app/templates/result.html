@@ -1,35 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Game Result</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body class="bg-light min-vh-100 d-flex align-items-center py-4">
-    <div class="container">
-        <div class="wrapper bg-white p-4 p-md-5 rounded shadow">
-            <h1 class="text-center mb-4">Game Result</h1>
+{% extends "base.html" %}
 
-            {% if correct %}
-                <div class="alert alert-success text-center mb-4">
-                    {{ message }}
-                </div>
+{% block title %}Game Result - Chess Visualization{% endblock %}
 
-                {% if piece == "Knight" and path %}
-                    <p class="text-center mb-4">
-                        Path: {{ ' -> '.join(path) }}
-                    </p>
-                {% endif %}
-            {% endif %}
+{% block content %}
+    <h1 class="text-center mb-4">Game Result</h1>
 
-            <div class="d-flex justify-content-center gap-3">
-                <a href="{{ url_for(game_type) }}" class="btn btn-primary fw-bold">Play Again</a>
-                <a href="{{ url_for('index') }}" class="btn btn-secondary fw-bold">Main Menu</a>
-            </div>
-        </div>
+    <div class="alert {% if correct %}alert-success{% else %}alert-danger{% endif %} text-center mb-4">
+        {{ message }}
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+    {% if piece == "Knight" and path %}
+        <p class="text-center mb-4">
+            Path: {{ ' -> '.join(path) }}
+        </p>
+    {% endif %}
+
+    <div class="d-flex justify-content-center gap-3">
+        <a href="{{ url_for(game_type) }}" class="btn btn-primary fw-bold">Play Again</a>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary fw-bold">Main Menu</a>
+    </div>
+{% endblock %}
