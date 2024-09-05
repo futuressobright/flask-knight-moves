@@ -1,7 +1,7 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 
 body {
-    background-color: #FFCC99;
+    background-color: #96b3d1;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
@@ -19,6 +19,7 @@ body {
 }
 
 .wrapper {
+  background-color: #FFE5D9;
   border: 3px solid #333;
   padding: 30px;
   border-radius: 20px;
@@ -80,7 +81,6 @@ p {
 }
 
 
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -118,7 +118,6 @@ p[style="color: red;"] {
 }
 
 .user-box, .play-again-box, .other-game-box {
-    background-color: #D3D3D3;
     border: 2px solid #333;
     color: #333;
     padding: 10px;
@@ -241,3 +240,4 @@ p[style="color: red;"] {
     background-color: #000000;
     color: #FFFFFF;
 }
+

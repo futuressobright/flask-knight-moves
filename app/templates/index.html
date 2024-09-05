@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>Chess Piece Moves</title>
+    <title>Chess Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LP35D8LBWQ"></script>
@@ -13,22 +13,21 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-LP35D8LBWQ');
     </script>
-
 </head>
 
-<body>
-    <div class="wrapper">
+<body class="min-vh-100 d-flex align-items-center py-4">
     <div class="container">
-        <h1>Chess Piece Moves</h1>
-        <div class="game-selection">
-            <a href="{{ url_for('knight_game') }}" class="game-button">Knight Game</a>
-            <a href="{{ url_for('bishop_game') }}" class="game-button">Bishop Game</a>
-            <a href="{{ url_for('color_game') }}" class="game-button">Color Game</a>
+        <div class="wrapper bg-info bg-opacity-10 p-4 p-md-5 rounded shadow" style="background-color: #FFE5D9 !important;">
+            <h1 class="text-center mb-4">Chess Visualization</h1>
+            <div class="game-selection d-flex flex-column align-items-center gap-3">
+                <a href="{{ url_for('knight_game') }}" class="game-button btn btn-primary w-100 fw-bold">Knight Game</a>
+                <a href="{{ url_for('bishop_game') }}" class="game-button btn btn-primary w-100 fw-bold">Bishop Game</a>
+                <a href="{{ url_for('color_game') }}" class="game-button btn btn-primary w-100 fw-bold">Color Game</a>
+            </div>
         </div>
     </div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

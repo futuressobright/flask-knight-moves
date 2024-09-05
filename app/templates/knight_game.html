@@ -1,62 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <title>Knight's Moves</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LP35D8LBWQ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-LP35D8LBWQ');
-    </script>
-
 </head>
-
-<body>
-    <div class="wrapper">
+<body class="bg-light min-vh-100 d-flex align-items-center py-4">
     <div class="container">
-        <h1>Knight's Moves</h1>
-        {% if correct_answer %}
-            <div class="success-message">Congratulations! You got it right!</div>
-            <div class="result-buttons-container">
-                    <a href="{{ url_for('knight_game') }}" class="play-again-box">Play Again</a>
-                    <a href="{{ url_for('bishop_game') }}" class="other-game-box">Bishop Game</a>
+        <div class="wrapper bg-white p-4 p-md-5 rounded shadow">
+            <h1 class="text-center mb-4">Knight's Moves</h1>
+
+            {% if message %}
+                <div class="alert alert-danger text-center mb-4">
+                    {{ message }}
+                </div>
+            {% endif %}
+
+            <div class="d-flex justify-content-center gap-4 mb-4">
+                <div class="square-box d-flex justify-content-center align-items-center">{{ square_a }}</div>
+                <div class="square-box d-flex justify-content-center align-items-center">{{ square_b }}</div>
             </div>
-        {% endif %}
-        <div class="square-box-container">
-            <div class="square-box">{{ square_a }}</div>
-            <div class="square-box">{{ square_b }}</div>
+
+            <p class="text-center fw-bold mb-4">Select the number of moves required:</p>
+
+            <form method="post" id="moveForm">
+                <div class="d-flex justify-content-center flex-wrap gap-2 mb-4">
+                    {% for i in range(1, 7) %}
+                        <button type="submit" name="user_moves" value="{{ i }}" class="btn btn-outline-primary fw-bold">{{ i }}</button>
+                    {% endfor %}
+                </div>
+            </form>
+
+            <div class="text-center">
+                <a href="{{ url_for('index') }}" class="btn btn-secondary fw-bold">Main Menu</a>
+            </div>
         </div>
-        <p><b>Select the number of moves required:</b></p>
-        <form method="post" id="moveForm">
-            <input type="hidden" name="user_moves" id="user_moves">
-            <div class="user-box-container">
-                <div class="user-box" onclick="submitMove(1)">1</div>
-                <div class="user-box" onclick="submitMove(2)">2</div>
-                <div class="user-box" onclick="submitMove(3)">3</div>
-                <div class="user-box" onclick="submitMove(4)">4</div>
-                <div class="user-box" onclick="submitMove(5)">5</div>
-                <div class="user-box" onclick="submitMove(6)">6</div>
-            </div>
-        </form>
-        {% if message %}
-            <p style="color: red;">{{ message }}</p>
-        {% endif %}
     </div>
-    </div>
-    <script>
-        function submitMove(value) {
-            document.getElementById('user_moves').value = value;
-            document.getElementById('moveForm').submit();
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

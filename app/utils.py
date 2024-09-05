@@ -15,7 +15,7 @@ def is_valid(c, r):
 def square_color(square):
     """Determines the color of a given square on the chessboard."""
     col, row = letter_to_col[square[0]], int(square[1])
-    return "Black" if (col + row) % 2 == 0 else "White"
+    return "dark" if (col + row) % 2 == 0 else "light"
 
 def knight_moves(start, end):
     """Calculates the minimum number of moves required for a knight to move from start to end and stores the path."""
@@ -28,6 +28,7 @@ def knight_moves(start, end):
     queue = deque([(start_c, start_r, 0, [(start_c, start_r)])])
     visited = set()
     visited.add((start_c, start_r))
+
     while queue:
         c, r, moves, path = queue.popleft()
 
